@@ -1,18 +1,28 @@
-# Salesforce DX Project: Next Steps
+# GeoLocation
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## How to Scratch Org Deploy
+1. Create scratch org
+    ```
+    sfdx force:org:create -f config/project-scratch-def.json -a GeoTestOrg
+    ```
+1. Push source to scratch org
+    ```
+    sfdx force:source:push -u GeoTestOrg
+    ```
+1. Assign permission set
+    ```
+    sfdx force:user:permset:assign -n Geolocation -u GeoTestOrg
+    ```
+1. Import test data
 
-## How Do You Plan to Deploy Your Changes?
-
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+    ```
+    sfdx force:data:tree:import --sobjecttreefiles data/Account.json
+    ```
+1. Open scratch org
+    ```
+    sfdx force:org:open -u GeoTestOrg
+    ```
+## Login Information
+- ~6/26/2021  GeoTestOrg
+  - User name: test-rk9hmrmqpgms@example.com
+  - PW: X1KKx0#)py
